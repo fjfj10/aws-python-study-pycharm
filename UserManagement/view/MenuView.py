@@ -1,3 +1,7 @@
+# from 모듈명 import 클래스명
+from UserManagement.view.UserView import UserView
+
+
 class MenuView:
 
     @staticmethod
@@ -14,14 +18,15 @@ class MenuView:
         if select == "q":
             return False
         elif select == "1":
-            pass
+            UserView.showAllUser()
         elif select == "2":
-            pass
+            # UserView.getUserByUsername()
+            UserView.showFindUser()
         elif select == "3":
-            from UserManagement.view.RegisterUserView import RegisterUserView
-            RegisterUserView.register()
+            UserView.register()
         elif select == "4":
-            pass
+            # UserView.modify()
+            UserView.updateUser()
         elif select == "5":
             pass
         else:
