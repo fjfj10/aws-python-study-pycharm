@@ -28,7 +28,7 @@ class MenuView:
             # UserView.modify()
             UserView.updateUser()
         elif select == "5":
-            pass
+            UserView.deleteUser()
         else:
             print("선택하신 번호는등록되지 않은 메뉴입니다.")
 

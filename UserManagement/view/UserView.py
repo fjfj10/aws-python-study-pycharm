@@ -85,8 +85,13 @@ class UserView:
         print(df)
         userId = input("수정하실 userId를 입력하세요 >>> ")
         index = df.index[df["userId"] == int(userId)].values[0]
-        UserView.showUpdateMenu(response.body[index])
-
+        user = UserView.showUpdateMenu(response.body[index])
+        if not bool(user):
+            print("수정을 취소했습니다.")
+            return
+        response = UserController.updateUser(user)
+        if(bool(response.body)):
+            print("======== << 수정 완료 >> ========")
 
     @staticmethod
     def showUpdateMenu(oldUser):
@@ -153,3 +158,23 @@ class UserView:
             return False
 
         return True
+
+
+    @staticmethod
+    def deleteUser():
+        print("[ 사용자 삭제 ]")
+        username = input("삭제할 사용자의 username을 입력해주세요 >>> ")
+        if not bool(username):
+            print("사용자 정보를 찾을 수 없습니다.")
+            return
+
+        doublecheck = input("정말로 삭제하시겠습니까? [y / n]")
+
+        if doublecheck == "n":
+            print("사용자 삭제를 취소합니다.")
+        elif doublecheck == "y":
+            response = UserController.deleteUser(username)
+            if (bool(response.body)):
+                print("======== << 삭제 완료 >> ========")
+
+

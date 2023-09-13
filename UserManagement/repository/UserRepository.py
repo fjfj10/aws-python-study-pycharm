@@ -95,33 +95,31 @@ class UserRepository:
             connection = DataBaseConfig.getConnection()
             cursor = connection.cursor(pymysql.cursors.DictCursor)
             sql = f"""
-            update
-                user_tb
+            update user_tb
             set
-                username = %s,
                 password = %s,
                 name = %s,
                 email = %s
             where
                 user_id = %s
             """
-            updatecount = cursor.execute(sql, (user.username, user.password, user.name, user.email, user.userId))
+            updateCount = cursor.execute(sql, (user.get("password"), user.get("name"), user.get("email"), user.get("userId")))
             connection.commit()
-            return updatecount
+            return updateCount
         except Exception as e:
             print(e)
             return None
 
     @staticmethod
-    def deleteUser(username):
+    def deleteUser(username=None):
         try:
             connection = DataBaseConfig.getConnection()
             cursor = connection.cursor(pymysql.cursors.DictCursor)
             sql = f"""
             delete from user_tb
-            where username = "{username}"
+            where username = %s
             """
-            deletecount = cursor.execute(sql)
+            deletecount = cursor.execute(sql, username)
             connection.commit()
             return deletecount
         except Exception as e:

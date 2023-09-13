@@ -25,12 +25,13 @@ class UserController:
         return ResponseEntity(body=responseBody)
 
     @staticmethod
-    def modifyUser(user = None):
+    def updateUser(user=None):
         from UserManagement.repository.UserRepository import UserRepository
         responseBody = bool(UserRepository.updateUser(user))
         return ResponseEntity(body=responseBody)
 
     @staticmethod
-    def deleteUser(username):
+    def deleteUser(username=None):
         from UserManagement.repository.UserRepository import UserRepository
-        user = UserRepository.deleteUser(username)
+        responseBody = UserRepository.deleteUser(username)
+        return ResponseEntity(body=responseBody)
