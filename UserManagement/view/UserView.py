@@ -162,10 +162,14 @@ class UserView:
 
     @staticmethod
     def deleteUser():
+        print("*"* 50)
         print("[ 사용자 삭제 ]")
         username = input("삭제할 사용자의 username을 입력해주세요 >>> ")
-        if not bool(username):
-            print("사용자 정보를 찾을 수 없습니다.")
+        response = UserController.getUser(username)
+        if bool(response.body):
+            print(pd.Series(response.body))
+        else:
+            print("존재하지 않는 사용자입니다.")
             return
 
         doublecheck = input("정말로 삭제하시겠습니까? [y / n]")
@@ -176,5 +180,3 @@ class UserView:
             response = UserController.deleteUser(username)
             if (bool(response.body)):
                 print("======== << 삭제 완료 >> ========")
-
-
