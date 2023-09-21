@@ -1,0 +1,26 @@
+[
+    {
+        "title": "경기도_도서 관련 업체 현황",
+        "provider_organization": "경기도",
+        "update_date": "2019-09-16",
+        "hits": "2269",
+        "request_count": "174",
+        "keyword": "지역서점,책방,도서대여점"
+    },
+    {
+        "title": "울산광역시_전자도서 정보",
+        "provider_organization": "울산광역시",
+        "update_date": "2022-11-11",
+        "hits": "1299",
+        "request_count": "29",
+        "keyword": "전자책,도서,자료실"
+    },
+    {
+        "title": "충청남도 공주시_시립도서관 도서목록 DB",
+        "provider_organization": "충청남도 공주시",
+        "update_date": "2019-10-02",
+        "hits": "2323",
+        "request_count": "45",
+        "keyword": "공주시립도서관,도서관,도서목록"
+    }
+]

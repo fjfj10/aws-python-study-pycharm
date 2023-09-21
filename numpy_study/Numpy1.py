@@ -33,6 +33,7 @@ print(npArray1.shape)
 print(npDoubleArray1.shape)
 
 npArray4 = np.arange(1, 11)
+print("npArray4")
 print(npArray4)
 
 npArray5 = np.zeros(10)
